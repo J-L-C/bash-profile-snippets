@@ -1,0 +1,19 @@
+#Functions
+function enter { docker exec -it "$1" bash; }
+function drcmd { docker exec -it "$1" "$2"; }
+function docker-ip { docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$1"; }
+
+alias kb=kubectl
+alias dr=docker
+alias destroy-all="docker system prune -a"
+alias drprc="docker container prune"
+alias drpri="docker image prune"
+alias drli="docker images"
+alias drlp="docker ps"
+alias drlpa="docker ps -a"
+alias drcmd="docker exec -it"
+
+#Exports
+export -f enter
+export -f drcmd
+export -f docker-ip
